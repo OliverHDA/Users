@@ -53,4 +53,13 @@ dependencies {
     implementation 'com.google.dagger:dagger-android-support:2.37'
     kapt 'com.google.dagger:dagger-compiler:2.37'
     kapt 'com.google.dagger:dagger-android-processor:2.37'
+
+    //Moxy
+    implementation "com.github.moxy-community:moxy:2.2.2"
+    implementation "com.github.moxy-community:moxy-ktx:2.2.2"
+    implementation "com.github.moxy-community:moxy-androidx:2.2.2"
+    kapt "com.github.moxy-community:moxy-compiler:2.2.2"
+
+    //Cicerone
+    implementation 'com.github.terrakok:cicerone:7.0'
 }

@@ -26,4 +26,8 @@ class VisitHistoryFragment : Fragment() {
         _binding = null
         super.onDestroyView()
     }
+
+    companion object {
+        fun newInstance() = VisitHistoryFragment()
+    }
 }

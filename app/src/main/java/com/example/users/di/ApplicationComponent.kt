@@ -1,7 +1,10 @@
 package com.example.users.di
 
 import android.content.Context
-import com.example.users.App
+import com.example.users.di.modules.ContributesAndroidInjectorModule
+import com.example.users.main.App
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -11,7 +14,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        AndroidInjectionModule::class
+        AndroidInjectionModule::class,
+        ContributesAndroidInjectorModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<App> {
@@ -21,6 +25,12 @@ interface ApplicationComponent : AndroidInjector<App> {
 
         @BindsInstance
         fun withContext(context: Context): Builder
+
+        @BindsInstance
+        fun withNavigatorHolder(navigatorHolder: NavigatorHolder): Builder
+
+        @BindsInstance
+        fun withRouter(router: Router): Builder
 
         fun build(): ApplicationComponent
     }
