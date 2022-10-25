@@ -2,7 +2,7 @@ package com.example.users.di.modules
 
 import com.example.users.main.MainActivity
 import com.example.users.screens.auth.AuthFragment
-import com.example.users.screens.visit.VisitHistoryFragment
+import com.example.users.screens.signinhistory.SignInHistoryFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -16,5 +16,5 @@ interface ContributesAndroidInjectorModule {
     fun bindAuthFragment(): AuthFragment
 
     @ContributesAndroidInjector
-    fun bindVisitHistoryFragment(): VisitHistoryFragment
+    fun bindSignInHistoryFragment(): SignInHistoryFragment
 }

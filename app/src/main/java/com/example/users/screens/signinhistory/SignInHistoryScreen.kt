@@ -1,11 +1,11 @@
-package com.example.users.screens.visit
+package com.example.users.screens.signinhistory
 
 import com.example.users.model.Authentication
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
-class VisitHistoryScreen {
+class SignInHistoryScreen {
 
     fun create(user: String, authentication: Authentication): FragmentScreen = FragmentScreen {
-        VisitHistoryFragment.newInstance(user, authentication)
+        SignInHistoryFragment.newInstance(user, authentication)
     }
 }

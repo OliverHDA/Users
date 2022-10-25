@@ -2,12 +2,11 @@ package com.example.users.screens.auth
 
 import com.example.users.data.repository.Repository
 import com.example.users.model.Authentication
-import com.example.users.screens.visit.VisitHistoryScreen
+import com.example.users.screens.signinhistory.SignInHistoryScreen
 import com.example.users.utils.ISchedulers
 import com.github.terrakok.cicerone.Router
 import io.reactivex.disposables.CompositeDisposable
 import moxy.MvpPresenter
-import java.util.*
 
 class AuthPresenter(
     private val router: Router,
@@ -43,6 +42,6 @@ class AuthPresenter(
     }
 
     fun signIn(user: String, authentication: Authentication) {
-        router.navigateTo(VisitHistoryScreen().create(user, authentication))
+        router.navigateTo(SignInHistoryScreen().create(user, authentication))
     }
 }
