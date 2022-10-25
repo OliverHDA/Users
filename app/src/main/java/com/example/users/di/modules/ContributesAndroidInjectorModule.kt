@@ -1,8 +1,8 @@
 package com.example.users.di.modules
 
-import com.example.users.auth.AuthFragment
 import com.example.users.main.MainActivity
-import com.example.users.visit.VisitHistoryFragment
+import com.example.users.screens.auth.AuthFragment
+import com.example.users.screens.visit.VisitHistoryFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

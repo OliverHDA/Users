@@ -1,7 +1,9 @@
 package com.example.users.model
 
+import com.google.gson.annotations.SerializedName
+
 data class User(
-    val user: String,
-    val uid: String,
-    val language: String
+    @SerializedName("User") val user: String,
+    @SerializedName("Uid") val uid: String,
+    @SerializedName("Language") val language: String
 )

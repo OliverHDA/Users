@@ -1,6 +1,6 @@
 package com.example.users.main
 
-import com.example.users.auth.AuthScreen
+import com.example.users.screens.auth.AuthScreen
 import com.github.terrakok.cicerone.Router
 import moxy.MvpPresenter
 

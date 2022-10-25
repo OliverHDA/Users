@@ -1,6 +1,8 @@
 package com.example.users.di
 
 import android.content.Context
+import com.example.users.di.modules.ApiModule
+import com.example.users.di.modules.AppModule
 import com.example.users.di.modules.ContributesAndroidInjectorModule
 import com.example.users.main.App
 import com.github.terrakok.cicerone.NavigatorHolder
@@ -15,7 +17,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        ContributesAndroidInjectorModule::class
+        ContributesAndroidInjectorModule::class,
+        ApiModule::class,
+        AppModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<App> {

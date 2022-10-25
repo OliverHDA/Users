@@ -1,4 +1,4 @@
-package com.example.users.auth
+package com.example.users.screens.auth
 
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 

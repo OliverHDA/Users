@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/defaultPadding"
-    tools:context=".AuthFragment">
+    tools:context="screens.auth.AuthFragment">
 
 
     <TextView
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/_user"
+        android:id="@+id/user_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_margin"
@@ -35,13 +35,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/defaultMargin"
-        app:layout_constraintBottom_toTopOf="@id/_password"
+        app:layout_constraintBottom_toTopOf="@id/password_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_user" />
+        app:layout_constraintTop_toBottomOf="@id/user_tv" />
 
     <TextView
-        android:id="@+id/_password"
+        android:id="@+id/password_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/small_margin"
@@ -58,7 +58,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/_password">
+        app:layout_constraintTop_toBottomOf="@id/password_tv">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
