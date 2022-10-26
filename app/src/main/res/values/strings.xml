@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Users</string>
+    <string name="sign_in">Вход</string>
+    <string name="user">Пользователь</string>
+    <string name="password">Пароль</string>
+    <string name="visit_history">История посещений</string>
+    <string name="date">Дата</string>
+    <string name="sign_in_date">Дата входа:</string>
+    <string name="_user">Пользователь:</string>
+    <string name="current_date">CurrentDate</string>
+    <string name="current_date_">CurrentDate:</string>
+    <string name="photo_hash">PhotoHash</string>
+    <string name="photo_hash_">PhotoHash:</string>
+    <string name="continue_work">ContinueWork</string>
+    <string name="continue_work_">ContinueWork:</string>
+    <string name="response">Response</string>
+    <string name="response_">Response:</string>
 </resources>

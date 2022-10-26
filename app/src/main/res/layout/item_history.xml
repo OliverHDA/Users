@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/small_padding">
+
+    <TextView
+        android:id="@+id/response_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/response_"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/response"
+        app:layout_constraintStart_toEndOf="@id/response_tv"
+        app:layout_constraintTop_toTopOf="@id/response_tv" />
+
+    <TextView
+        android:id="@+id/continueWork_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text="@string/continue_work_"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/response_tv" />
+
+    <TextView
+        android:id="@+id/continueWork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/continue_work"
+        app:layout_constraintStart_toEndOf="@id/continueWork_tv"
+        app:layout_constraintTop_toTopOf="@id/continueWork_tv" />
+
+    <TextView
+        android:id="@+id/photoHash_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text="@string/photo_hash_"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/continueWork_tv" />
+
+    <TextView
+        android:id="@+id/photoHash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/photo_hash"
+        app:layout_constraintStart_toEndOf="@id/photoHash_tv"
+        app:layout_constraintTop_toTopOf="@id/photoHash_tv" />
+
+    <TextView
+        android:id="@+id/currentDate_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text="@string/current_date_"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photoHash_tv" />
+
+    <TextView
+        android:id="@+id/currentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:text="@string/current_date"
+        app:layout_constraintStart_toEndOf="@id/currentDate_tv"
+        app:layout_constraintTop_toTopOf="@id/currentDate_tv" />
+</androidx.constraintlayout.widget.ConstraintLayout>
