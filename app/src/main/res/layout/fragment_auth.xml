@@ -7,6 +7,13 @@
     android:padding="@dimen/defaultPadding"
     tools:context="screens.auth.AuthFragment">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/logo2"/>
 
     <TextView
         android:id="@+id/authTitle"
@@ -16,7 +23,7 @@
         android:textSize="@dimen/title_text_size"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <TextView
         android:id="@+id/user_tv"

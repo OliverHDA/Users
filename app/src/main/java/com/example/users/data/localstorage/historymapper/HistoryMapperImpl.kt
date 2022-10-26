@@ -8,6 +8,7 @@ class HistoryMapperImpl @Inject constructor(): HistoryMapper {
 
     override fun toHistoryEntity(uid: String, authentication: Authentication): HistoryEntity =
         HistoryEntity(
+            id = 0,
             uid = uid,
             response = authentication.response,
             continueWork =  authentication.continueWork,

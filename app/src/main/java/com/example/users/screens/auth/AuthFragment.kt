@@ -106,12 +106,7 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
 
     override fun initSignInButton(uid: String) {
         binding.signInButton.setOnClickListener {
-            //TODO Код добавлен для теста. Не забыть удалить
-            if (uid == "a1404b22-d821-11ec-ab52-000c29601d6b") {
-                presenter.onSignInClick(uid, "a1404b22-d821-11ec-ab52-000c29601d6b")
-            } else {
-                presenter.onSignInClick(uid, binding.passwordEditText.toString())
-            }
+            presenter.onSignInClick(uid, binding.passwordEditText.toString())
         }
     }
 
