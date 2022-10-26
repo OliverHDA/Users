@@ -9,7 +9,7 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.users.data.repository.Repository
+import com.example.users.data.repository.RemoteRepository
 import com.example.users.databinding.FragmentAuthBinding
 import com.example.users.model.Response
 import com.example.users.model.User
@@ -26,16 +26,14 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
     lateinit var router: Router
 
     @Inject
-    lateinit var repository: Repository
+    lateinit var remoteRepository: RemoteRepository
 
     @Inject
     lateinit var schedulers: ISchedulers
 
     private val presenter: AuthPresenter by moxyPresenter {
-        AuthPresenter(router, repository, schedulers)
+        AuthPresenter(router, remoteRepository, schedulers)
     }
-
-    private var selectedUser: User? = null
 
     private var _binding: FragmentAuthBinding? = null
     private val binding: FragmentAuthBinding
@@ -55,21 +53,6 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        selectedUser = User("user", "uid", "")
-        binding.signInButton.setOnClickListener {
-            selectedUser?.let {
-                //TODO Код добавлен для теста. Не забыть удалить
-                if (it.uid == "180d7078-d745-11ec-ab52-000c29601d6b") {
-                    presenter.onSignInClick(it.uid, "180d7078-d745-11ec-ab52-000c29601d6b")
-                } else {
-                    presenter.onSignInClick(it.uid, binding.passwordEditText.toString())
-                }
-            }
-        }
-    }
-
     override fun onDestroyView() {
         _binding = null
         super.onDestroyView()
@@ -85,6 +68,9 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
 
         binding.users.adapter = adapter
         binding.users.setSelection(0, false)
+        if (users.isNotEmpty()) {
+            presenter.setCurrentUser(users[0])
+        }
         binding.users.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -92,19 +78,21 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
                 position: Int,
                 id: Long
             ) {
-                selectedUser = users[position]
+                presenter.setCurrentUser(users[position])
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                selectedUser = users[0]
+                if (users.isNotEmpty()) {
+                    presenter.setCurrentUser(users[0])
+                }
             }
         }
     }
 
     override fun signIn(response: Response) {
         if (response.code == null) {
-            if (selectedUser != null && response.authentication != null) {
-                presenter.signIn(selectedUser!!.user, response.authentication)
+            if (presenter.getCurrentUser() != null && response.authentication != null) {
+                presenter.signIn(response.authentication)
             }
         } else {
             Toast.makeText(context, "Ошибка авторизации код: ${response.code}", Toast.LENGTH_SHORT)
@@ -114,6 +102,17 @@ class AuthFragment : MvpAppCompatFragment(), AuthView {
 
     override fun error(e: Throwable) {
         Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun initSignInButton(uid: String) {
+        binding.signInButton.setOnClickListener {
+            //TODO Код добавлен для теста. Не забыть удалить
+            if (uid == "a1404b22-d821-11ec-ab52-000c29601d6b") {
+                presenter.onSignInClick(uid, "a1404b22-d821-11ec-ab52-000c29601d6b")
+            } else {
+                presenter.onSignInClick(uid, binding.passwordEditText.toString())
+            }
+        }
     }
 
     companion object {

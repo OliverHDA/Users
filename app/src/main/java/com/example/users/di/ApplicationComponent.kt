@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.users.di.modules.ApiModule
 import com.example.users.di.modules.AppModule
 import com.example.users.di.modules.ContributesAndroidInjectorModule
+import com.example.users.di.modules.StorageModule
 import com.example.users.main.App
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
@@ -19,7 +20,8 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         ContributesAndroidInjectorModule::class,
         ApiModule::class,
-        AppModule::class
+        AppModule::class,
+        StorageModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<App> {

@@ -7,10 +7,10 @@ import com.example.users.utils.ISchedulers
 import io.reactivex.Single
 import javax.inject.Inject
 
-class RepositoryImpl @Inject constructor(
+class RemoteRepositoryImpl @Inject constructor(
     private val api: SitecApi,
     private val schedulers: ISchedulers
-) : Repository {
+) : RemoteRepository {
     override fun getUsers(): Single<Users> =
         api
             .getUsers()

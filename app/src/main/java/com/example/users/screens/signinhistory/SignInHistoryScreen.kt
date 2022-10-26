@@ -5,7 +5,7 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 class SignInHistoryScreen {
 
-    fun create(user: String, authentication: Authentication): FragmentScreen = FragmentScreen {
-        SignInHistoryFragment.newInstance(user, authentication)
+    fun create(uid: String, user: String, authentication: Authentication): FragmentScreen = FragmentScreen {
+        SignInHistoryFragment.newInstance(uid, user, authentication)
     }
 }

@@ -16,4 +16,7 @@ interface AuthView : MvpView {
 
     @Skip
     fun error(e: Throwable)
+
+    @Skip
+    fun initSignInButton(uid: String)
 }

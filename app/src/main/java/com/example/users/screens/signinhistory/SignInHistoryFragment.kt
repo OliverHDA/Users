@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.users.data.repository.LocalRepository
 import com.example.users.databinding.FragmentSignInHistoryBinding
 import com.example.users.model.Authentication
 import com.example.users.utils.ISchedulers
@@ -19,12 +20,19 @@ class SignInHistoryFragment : MvpAppCompatFragment(), SignInHistoryView {
     @Inject
     lateinit var schedulers: ISchedulers
 
+    @Inject
+    lateinit var repository: LocalRepository
+
     private val newAuthentication by lazy {
         arguments?.get(AUTH_ARG) as Authentication
     }
 
     private val user by lazy {
         arguments?.getString(USER_ARG)
+    }
+
+    private val uid by lazy {
+        arguments?.getString(UID_ARG).orEmpty()
     }
 
     private lateinit var historyAdapter: SignInHistoryRVAdapter
@@ -34,7 +42,7 @@ class SignInHistoryFragment : MvpAppCompatFragment(), SignInHistoryView {
         get() = _binding!!
 
     private val presenter: SignInHistoryPresenter by moxyPresenter {
-        SignInHistoryPresenter(schedulers, newAuthentication)
+        SignInHistoryPresenter(schedulers, repository, uid, newAuthentication)
     }
 
     override fun onAttach(context: Context) {
@@ -58,8 +66,9 @@ class SignInHistoryFragment : MvpAppCompatFragment(), SignInHistoryView {
 
     override fun show(list: List<Authentication>) {
         binding.userTitle.text = user
-        historyAdapter = SignInHistoryRVAdapter(list)
-        binding.historyRecyclerView.adapter = historyAdapter
+        historyAdapter = SignInHistoryRVAdapter(list).also {
+            binding.historyRecyclerView.adapter = it
+        }
     }
 
     override fun error(e: Throwable) {
@@ -67,15 +76,17 @@ class SignInHistoryFragment : MvpAppCompatFragment(), SignInHistoryView {
     }
 
     companion object {
-        fun newInstance(user: String, authentication: Authentication) =
+        fun newInstance(user: String, uid: String, authentication: Authentication) =
             SignInHistoryFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable(AUTH_ARG, authentication)
                     putString(USER_ARG, user)
+                    putString(UID_ARG, uid)
                 }
             }
 
         private const val AUTH_ARG = "authentication"
         private const val USER_ARG = "user"
+        private const val UID_ARG = "uid"
     }
 }
